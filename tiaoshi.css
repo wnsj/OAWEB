@@ -1,0 +1,15 @@
+.headnew{ width: 100%; background-color: #0f9095;}
+.root{ width: 96%; margin: 20px auto; border:1px solid #0f9095; border-radius: 6px; }
+.img_title{ width:16%; float: left; overflow: hidden; margin-top: 20px; margin-left: 1%;}
+.img_title h2{ display: inline-block; color: #fff; margin-left: 10px; margin-top: 10px; float: left;}
+.img_title img{ width: 46px; float: left;}
+.shenqdata{ width: 80%; float: left; margin-top: 20px}
+.shenqdata select{ display: block; width: 120px; height: 40px; line-height: 34px; font-size: 18px; float: left;}
+.leavespan{ width: 160px; height: 34px; display: block; float: left;margin-left: 20px;}
+.leavespan .mx-datepicker{ width: 160px;}
+.leavespan01{padding-top:10px; padding-left: 10px; float: left; color: #fff}
+.leavespan .mx-datepicker .mx-input{ padding:6px 34px; height: 40px;}
+.bumen{ width: 16%; float: left; overflow: hidden;}
+.bumen p{ display: inline; padding: 10px; float: left; color: #fff;}
+.bumen div{ width: 160px; float: left;}
+.bumen div select{ display: block; width: 150px;}

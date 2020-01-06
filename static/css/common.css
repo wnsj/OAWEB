@@ -1,0 +1,111 @@
+@charset "utf-8";
+
+body{
+    background-color: #eeeeee;
+}
+.titleCss{
+	color: #ffffff;
+	margin-top:35px;
+    margin-top: -120px;
+    font-weight:bold;
+    text-indent: -2em;
+	margin-right: 300px;
+}
+.clear-mp{
+    margin: 0;
+    padding: 0;
+}
+.my-aside{
+    height: 100%;
+    background-color:rgb(230, 230, 230);
+    box-sizing: border-box;
+    border-right:1px solid #ccc;
+}
+.my-aside ul{
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    margin-top: -10px;
+    padding: 10px 0;
+}
+.my-aside ul li{
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+	font-weight: bold;
+    color: #1b4fa3;
+    border-top:1px solid #ccc;
+}
+.my-aside ul li:nth-child(1){
+    border-top:0 none;
+}
+.my-aside ul li a{
+	text-align: center;
+    display:inline-block;
+    width: 100%;
+    line-height: 50px;
+    /* color: #fff; */
+}
+.my-aside ul li i{
+    padding: 0 15px 0 22px;
+}
+.my-aside ul .li-active{
+    background-color: #fff; 
+}
+.my-aside ul .li-active a{
+    color: #f0ad4e;
+}
+.second-menu{
+    /* display: none; */
+    background-color: #1e2831;
+}
+.second-menu li{
+    padding-left: 15px;
+}
+
+.aside-logo{
+    /* background-color: #283643; */
+	background-color: #66ccff;
+    padding:10px 0;
+    min-height: 50px;
+    width: 100%;
+}
+.aside-logo h2{
+    margin: 0px;
+    color: #1b4fa3;
+    text-align: center;
+    line-height: 50px;
+    font-size: 26px;
+}
+.aside-logo h2 span{
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+}
+.item-down{
+    float: right;
+    margin-top: 14px;
+    font-size: 18px;
+}
+
+.my-navbar{
+    border: none;
+    height: 68px;
+    background-color: #fff;
+    border-radius: 0;
+}
+.my-navbar-brand{
+    height: 68px;
+}
+.my-signed{
+    margin-top: 9px;
+    font-size: 16px;
+}
+.my-signed i{
+    font-size: 20px;
+}
+.my-main{
+    margin: 0 15px;
+}
+
+#myModalJoin{ overflow-y:hidden!important;}
