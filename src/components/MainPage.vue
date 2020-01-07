@@ -36,7 +36,7 @@
 
 
           <span>
-            <input type="text" value="" class="form-control" v-model="empName" style="background-color: #c7e5e7;line-height: 40px; display: block; height: 40px; float:left;  width:55%" />
+            <input type="text" value="" class="form-control" v-model="empName" style="background-color: #c7e5e7;line-height: 40px; display: block; height: 40px; float:left;  width:100px;margin-left:10px" />
           </span>
 
         </div>
@@ -54,7 +54,7 @@
           </select>
 
         </div>
-        <div class="row add-mt">
+        <div id="queryDiv">
           <button type="button" class="btn btn-warning pull-left m_r_10" data-toggle="modal" v-on:click="askOfLeaveList()"
             id="chax">查询</button>
 
