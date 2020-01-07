@@ -17,45 +17,46 @@
 
 
         <span class="leavespan">
-          <dPicker v-model="begDate"></dPicker>
-        </span> <span class="leavespan01" style="font-size: 20px">至：</span>
+          <dPicker v-model="begDate" value-type="format" format="YYYY-MM-DD"></dPicker>
+        </span> <span class="leavespan01" style="font-size: 16px">至：</span>
         <span class="leavespan">
-          <dPicker v-model="endDate"></dPicker>
+          <dPicker v-model="endDate" value-type="format" format="YYYY-MM-DD"></dPicker>
         </span>
 
 
         <div class="bumen">
-          <p style="font-size: 20px">部门：</p>
+          <p style="font-size: 16px">部门：</p>
           <div>
             <depart @departChange='departChange'></depart>
           </div>
         </div>
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-          <div class="col-md-4 col-lg-4" style="padding: 0; line-height: 40px;">
-            <p style="color: #fff; font-size: 20px;">姓名：</p>
-          </div>
-          <div class="col-md-8 col-lg-8">
-            <span>
-              <input type="text" value="" class="form-control" v-model="empName" style="background-color: #c7e5e7;line-height: 40px; display: inline-block; height: 40px;" />
-            </span>
-          </div>
+        <div class="xingming">
+
+          <p style="color: #fff; font-size: 16px;">姓名：</p>
+
+
+          <span>
+            <input type="text" value="" class="form-control" v-model="empName" style="background-color: #c7e5e7;line-height: 40px; display: block; height: 40px; float:left;  width:55%" />
+          </span>
+
         </div>
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-          <div class="col-md-4 col-lg-4" style="padding: 0; line-height: 40px;">
-            <p style="color: #fff;font-size: 20px">状态：</p>
-          </div>
-          <div class="col-md-8 col-lg-8">
-            <select class="form-control" v-model="advState" style="background-color: #c7e5e7;">
-              <option value="0">全部</option>
-              <option value="1">处理中</option>
-              <option value="2">已通过</option>
-              <option value="3">未通过</option>
-              <option value="4">已取消</option>
-            </select>
-          </div>
+        <div class="zhuangtai">
+
+          <p style="color: #fff;font-size: 16px">状态：</p>
+
+
+          <select class="form-control" v-model="advState" style="background-color: #c7e5e7;" id="ztselect">
+            <option value="0">全部</option>
+            <option value="1">处理中</option>
+            <option value="2">已通过</option>
+            <option value="3">未通过</option>
+            <option value="4">已取消</option>
+          </select>
+
         </div>
         <div class="row add-mt">
-          <button type="button" class="btn btn-warning pull-left m_r_10" data-toggle="modal" v-on:click="askOfLeaveList()">查询</button>
+          <button type="button" class="btn btn-warning pull-left m_r_10" data-toggle="modal" v-on:click="askOfLeaveList()"
+            id="chax">查询</button>
 
         </div>
       </div>
@@ -73,7 +74,7 @@
                 <th class="text-center">申请时间</th>
                 <th class="text-center">开始时间</th>
                 <th class="text-center">结束时间</th>
-                <th class="text-center">说明</th>
+                <th class="text-center">请假说明</th>
                 <th class="text-center">审查人</th>
                 <th class="text-center">审查结果</th>
                 <th class="text-center">审核人</th>
@@ -84,7 +85,7 @@
               </tr>
             </thead>
             <thead>
-              <tr v-for="(item) in askLeaveList" :key="item.alId">
+              <tr v-for="(item) in askLeaveList" :key="item.alId" :style="setBgColor(item)">
                 <th class="text-center">{{item.empName}}</th>
                 <th class="text-center">{{item.ltName}}</th>
                 <th class="text-center">{{item.deptName}}</th>
@@ -105,6 +106,12 @@
               </tr>
             </thead>
           </table>
+          <div class="backse" style="width:100%; padding:20px 0">
+            <span :style="pass">通过审核</span>
+            <span :style="chuLing">处理中</span>
+            <span :style="unPass">未通过审核</span>
+            <span :style="cancaled">已取消</span>
+          </div>
         </div>
       </div>
     </div>
@@ -126,11 +133,15 @@
       return {
         dateType: 0,
         deptId: '',
-        begDate: this.moment(new Date(),'YYYY-MM-DD'),
-        endDate: this.moment(new Date(),'YYYY-MM-DD'),
+        begDate: this.moment(new Date(), 'YYYY-MM-DD'),
+        endDate: this.moment(new Date(), 'YYYY-MM-DD'),
         empName: '',
         advState: 0,
-        askLeaveList: []
+        askLeaveList: [],
+        pass: 'padding:10px;background-color:#85c6ca ;',
+        chuLing: 'padding:10px;background-color:#e2f2f2',
+        unPass: 'padding:10px;background-color: #ead5d5',
+        cancaled: 'padding:10px;background-color: #CCCCCC;'
       }
     },
     methods: {
@@ -203,6 +214,19 @@
         }, (error) => {
           console.log("请求失败处理");
         });
+      },
+      //处理背景颜色
+      setBgColor(obj) {
+        if (obj.state == '1') return this.cancaled;
+        else if (obj.approverAdv == '1') {
+          return this.pass;
+        } else if ((obj.examinerAdv != '2' && obj.auditorAdv != '2' && obj.approverAdv != '2') && (obj.examinerAdv ==
+            '0' || obj.examinerAdv == '1' || obj.auditorAdv == '0' || obj.auditorAdv == '1' ||
+            obj.approverAdv == '0' || obj.approverAdv == '1')) {
+          return this.chuLing;
+        } else {
+          return this.unPass;
+        }
       }
     },
     created() {

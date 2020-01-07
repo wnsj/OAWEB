@@ -5,16 +5,16 @@ body{ background-color:#e2f2f2;}
 .img_title{ width:16%; float: left; overflow: hidden; margin-top: 20px; margin-left: 1%;}
 .img_title h2{ display: inline-block; color: #fff; margin-left: 10px; margin-top: 10px; float: left;}
 .img_title img{ width: 46px; float: left;}
-.shenqdata{ width: 80%; float: left; padding: 25px 0; color: #000000; font-weight: bold;}
-.shenqdata select{ display: block; width: 120px; height: 40px; line-height: 34px; font-size: 18px; float: left; background-color: #c7e5e7;}
-.leavespan{ width: 160px; background-color: #c7e5e7; display: block; float: left;margin-left: 20px;}
-.leavespan .mx-datepicker{ width: 160px;}
+.shenqdata{ width: 80%; float: left; padding: 25px 0; color: #000000; }
+.shenqdata select{ display: block; width: 9%; height: 40px; line-height: 34px; font-size: 16px; float: left; background-color: #c7e5e7;}
+.leavespan{ width: 140px; background-color: #c7e5e7; display: block; float: left;margin-left: 20px;border-radius: 4px;}
+.leavespan .mx-datepicker{ width: 140px;}
 .leavespan01{padding-top:10px; padding-left: 10px; float: left; color: #fff}
-.leavespan .mx-datepicker .mx-input{ padding:6px 34px; height: 40px; background-color: #c7e5e7; color: #000; font-size: 16px; font-weight: bold;}
-.bumen{ width: 17%; float: left; overflow: hidden; margin-left: 25px;}
+.leavespan .mx-datepicker .mx-input{  height: 40px; background-color: #c7e5e7; color: #000; font-size: 16px;}
+.bumen{ width: 19%; float: left; overflow: hidden; margin-left: 1%;}
 .bumen p{ display: inline; padding: 10px; float: left; color: #fff;}
-.bumen div{ width: 160px; float: left;}
-.bumen div select{ display: block; width: 160px;}
+.bumen div{ width: 140px; float: left;}
+.bumen div select{ display: block; width: 140px;}
 
 /* 通过 */
 .tongguo{ background-color:#85c6ca ;}
@@ -23,5 +23,14 @@ body{ background-color:#e2f2f2;}
 /* 不同意 */
 .butongyi{ background-color: #ead5d5;}
 
-#mainbox{ background-color: #f1faf9; border: 1px solid #0f9095;}
+#mainbox{ background-color: #f1faf9; border: 1px solid #0f9095;padding-bottom:20px ;}
 #datatable{ background-color: #f1faf9;}
+.xingming{ width:15%; float:left}
+
+.xingming p{ width:30%;float: left; line-height: 40px;}
+.zhuangtai{ width:15%; float:left}
+
+.zhuangtai p{ width:30%;float: left; line-height: 40px;}
+#ztselect{ width:55%}
+#chax{ height:40px}
+#datatable tr th { vertical-align: inherit;}
