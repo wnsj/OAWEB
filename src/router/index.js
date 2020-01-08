@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import MainPage from '@/components/MainPage.vue'
 import test from '../components/MP/test.vue'
 import AskLeaveManage from '../components/MP/AskLeaveManage.vue'
+import RestDownManage from '../components/MP/RestDownManage.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -18,6 +19,10 @@ export default new Router({
       path: '/MP/AskLeaveManage',
       name: 'AskLeaveManage',
       component: AskLeaveManage,
+    }, {
+      path: '/MP/RestDownManage',
+      name: 'RestDownManage',
+      component: RestDownManage,
     }],
     // redirect: '/MainPage'
   }]
