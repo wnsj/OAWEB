@@ -24,6 +24,6 @@ export default new Router({
       name: 'RestDownManage',
       component: RestDownManage,
     }],
-    // redirect: '/MainPage'
+    redirect: '/MP/AskLeaveManage'
   }]
 })

@@ -1,11 +1,13 @@
 <template>
-  <div class="root">
-   	<router-view />
-   </div>
+    <div class="root">
+        <!-- <router-link to="/MP/AskLeaveManage">请假管理</router-link>
+        <router-link to="/MP/RestDownManage">倒休管理</router-link> -->
+        <router-view />
+    </div>
 </template>
 
 <script>
-  export default {}
+    export default {}
 </script>
 
 <style>
