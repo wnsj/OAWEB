@@ -8,16 +8,19 @@
 							<p style=" font-size: 30px; padding-left: 15px;" aria-hidden="true">所有内容</p>
 						</li>
 						<li>
-							<router-link to="/MP/EM/EmBase"><i class="fa" aria-hidden="true">　员工信息管理</i></router-link>
+							<router-link to="/MP/BS/Department"><i class="fa" aria-hidden="true">　部门管理</i></router-link>
 						</li>
 						<li>
-							<router-link to="/MP/EM/EmEducation"><i class="fa" aria-hidden="true">　学历信息管理</i></router-link>
+							<router-link to="/MP/BS/Position"><i class="fa" aria-hidden="true">　岗位管理</i></router-link>
 						</li>
 						<li>
-							<router-link to="/MP/EM/EmFamily"><i class="fa" aria-hidden="true">　家庭信息管理</i></router-link>
+							<router-link to="/MP/BS/PositionType"><i class="fa" aria-hidden="true">　岗位类型管理</i></router-link>
 						</li>
 						<li>
-							<router-link to="/MP/EM/EmShift"><i class="fa" aria-hidden="true">　岗位调动管理</i></router-link>
+							<router-link to="/MP/BS/AttendRule"><i class="fa" aria-hidden="true">　出勤规则管理</i></router-link>
+						</li>
+						<li>
+							<router-link to="/MP/BS/ScheduleType"><i class="fa" aria-hidden="true">　排班类型管理</i></router-link>
 						</li>
 					</ul>
 				</div>
