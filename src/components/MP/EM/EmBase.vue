@@ -59,7 +59,7 @@
 		</div>
 		<div class="row" style="margin-top: 15px;padding-bottom:1.5%;">	
 			<button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
-			  >添加</button>
+			  v-on:click="selectRule(1)">添加</button>
 			<button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
 			 >查询</button>
 		</div>
@@ -87,7 +87,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<!-- <tr v-for="(item,index) in projectList" :key="index" v-on:dblclick="selectRule('3',item)">
+							<tr v-for="(item,index) in projectList" :key="index" v-on:dblclick="selectRule('3',item)">
 								<td class="text-center" style="line-height:33px;">{{item.proId}}</td>
 								<td class="text-center" style="line-height:33px;">{{item.storeName}}</td>
 								<td class="text-center" style="line-height:33px;">{{item.empName}}</td>
@@ -96,7 +96,7 @@
 								<td class="text-center" style="line-height:33px;">{{item.frequency}}</td>
 								<td class="text-center" style="line-height:33px;">{{item.discount}}</td>
 								<td class="text-center" style="line-height:33px;"><button type="button" class="btn btn-warning" v-on:click="selectRule('3',item)">修改</button></td>
-							</tr> -->
+							</tr>
 						</tbody>
 					</table>
 				</div>
@@ -110,29 +110,83 @@
 				<p class="tips">* 双击单行，可对当前数据进行修改</p>
 			</div>
 		</div>
-		<!-- <div class="row row_edit">
-			<div class="modal fade" id="projectContent">
+		<div class="row row_edit">
+			<div class="modal fade" id="empContent">
 				<div class="modal-dialog">
-					<SubProject ref='subProject' @certainAction='feedBack'></SubProject>
+					<subEb ref='subEb' @certainAction='feedBack'></subEb>
 				</div>
 			</div>
-		</div> -->
+		</div>
 	</div>
 </template>
 
 <script>
 	import dept from '../../common/Department.vue'
+	import subEb from '../../MP/EM/SubEb/SubEb.vue'
 	import dPicker from 'vue2-datepicker'
 	export default {
 		components:{
 			dept,
 			dPicker,
+			subEb,
 		},
 		data() {
 			return {
 				
 			};
+		},
+		methods:{
+			selectRule(param,item){
+				
+				if(param==1){
+				    this.$refs.subEb.initData('add','')
+				    $("#empContent").modal('show')
+				}else if(param==3){
+				    this.$refs.subEb.initData('modify', item)
+				    $("#empContent").modal('show')
+				}
+				
+// 			    var url = this.url + '/ruleAction/queryRule'
+// 			
+// 			    this.$ajax({
+// 			        method: 'POST',
+// 			        url: url,
+// 			        headers: {
+// 			            'Content-Type': this.contentType,
+// 			            'Access-Token': this.accessToken
+// 			        },
+// 			        data: {
+// 			            posId: this.accountPosId(),
+// 			            moduleGrade:'2',
+// 			            urlName:'/MP/Visitor',
+// 			            operateType:param,
+// 			        },
+// 			        dataType: 'json',
+// 			    }).then((response) => {
+// 			        var res = response.data
+// 			        if (res.retCode == '0000') {
+// 			            if(res.retData=='0010'){
+// 			                console.log('param:'+param)
+// 			                if(param==1){
+// 			                    this.$refs.subVis.initData('add','')
+// 			                    $("#visContent").modal('show')
+// 			                }else if(param==3){
+// 			                    this.$refs.subVis.initData('modify', item)
+// 			                    $("#visContent").modal('show')
+// 			                }
+// 			            }else{
+// 			                alert('您没有此权限，请联系管理员！！')
+// 			            }
+// 			        } else {
+// 			            alert(res.retMsg)
+// 			        }
+// 			
+// 			    }).catch((error) => {
+// 			        console.log('员工权限查询请求失败')
+// 			    });
+			},
 		}
+		
 	}
 </script>
 
