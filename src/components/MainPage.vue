@@ -34,7 +34,7 @@
 				</li>
 
                 <li>
-                	<router-link to="/MP/PaperLess/forgetCardManage"><i class="fa" aria-hidden="false">忘打卡管理</i></router-link>
+                	<router-link to="/MP/PaperLess/forgetCardManage"><i class="fa" aria-hidden="false">漏打卡管理</i></router-link>
                 </li>
 			</ul>
 		</div>
