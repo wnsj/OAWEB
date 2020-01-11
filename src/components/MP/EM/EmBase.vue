@@ -87,7 +87,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr v-for="(item,index) in projectList" :key="index" v-on:dblclick="selectRule('3',item)">
+							<!-- <tr v-for="(item,index) in projectList" :key="index" v-on:dblclick="selectRule('3',item)">
 								<td class="text-center" style="line-height:33px;">{{item.proId}}</td>
 								<td class="text-center" style="line-height:33px;">{{item.storeName}}</td>
 								<td class="text-center" style="line-height:33px;">{{item.empName}}</td>
@@ -96,7 +96,7 @@
 								<td class="text-center" style="line-height:33px;">{{item.frequency}}</td>
 								<td class="text-center" style="line-height:33px;">{{item.discount}}</td>
 								<td class="text-center" style="line-height:33px;"><button type="button" class="btn btn-warning" v-on:click="selectRule('3',item)">修改</button></td>
-							</tr>
+							</tr> -->
 						</tbody>
 					</table>
 				</div>
@@ -184,6 +184,9 @@
 // 			    }).catch((error) => {
 // 			        console.log('员工权限查询请求失败')
 // 			    });
+			},
+			feedBack(){
+			    $("#empContent").modal('hide')
 			},
 		}
 		

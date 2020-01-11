@@ -3,7 +3,7 @@
 	<div class="modal-content">
 		<div class="modal-header">
 			<button type="button" aria-hidden="true" class="close" v-on:click="closeCurrentPage()">×</button>
-			<h4 id="myModalLabel" class="modal-title">{{title}}咨客</h4>
+			<h4 id="myModalLabel" class="modal-title">{{title}}员工</h4>
 		</div>
 		<div class="modal-body  pos_r">
 			<div class="tab-pane fade in active martop" id="basic">
@@ -190,8 +190,8 @@
 				// console.log('岗位4：'+this.employee.posId)
 			},
 			closeCurrentPage(){
-				$("#visContent").modal("hide")
-				console.log('关闭添加患者界面')
+				$("#empContent").modal("hide")
+				console.log('关闭员工添加界面')
 			},
 			//the event of addtional button
 			certainAction(){

@@ -6,7 +6,7 @@
 		
 		<div class="row" style="margin-top: 15px;padding-bottom:1.5%;">	
 			<button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
-			  >添加</button>
+			  v-on:click="selectRule(1)">添加</button>
 			<button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
 			 >查询</button>
 		</div>
@@ -51,23 +51,46 @@
 				<p class="tips">* 双击单行，可对当前数据进行修改</p>
 			</div>
 		</div>
-		<!-- <div class="row row_edit">
-			<div class="modal fade" id="projectContent">
+		<div class="row row_edit">
+			<div class="modal fade" id="eduContent">
 				<div class="modal-dialog">
-					<SubProject ref='subProject' @certainAction='feedBack'></SubProject>
+					<subEdu ref='subEdu' @certainAction='feedBack'></subEdu>
 				</div>
 			</div>
-		</div> -->
+		</div>
 	</div>
 </template>
 
 <script>
+	import subEdu from '../../MP/EM/SubEE/SubEdu.vue'
+	import dPicker from 'vue2-datepicker'
 	export default {
+		components:{
+			dPicker,
+			subEdu,
+		},
 		data() {
 			return {
 				
 			};
+		},
+		methods:{
+			selectRule(param,item){
+				
+				if(param==1){
+				    this.$refs.subEdu.initData('add','')
+				    $("#eduContent").modal('show')
+				}else if(param==3){
+				    this.$refs.subEdu.initData('modify', item)
+				    $("#eduContent").modal('show')
+				}
+			},
+			feedBack(){
+			    $("#eduContent").modal('hide')
+			},
+			
 		}
+		
 	}
 </script>
 

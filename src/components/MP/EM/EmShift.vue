@@ -5,7 +5,7 @@
 		</div>
 		<div class="row" style="margin-top: 15px;padding-bottom:1.5%;">	
 			<button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
-			  >添加</button>
+			  v-on:click="selectRule(1)">添加</button>
 			<button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
 			 >查询</button>
 		</div>
@@ -50,22 +50,43 @@
 				<p class="tips">* 双击单行，可对当前数据进行修改</p>
 			</div>
 		</div>
-		<!-- <div class="row row_edit">
-			<div class="modal fade" id="projectContent">
+		<div class="row row_edit">
+			<div class="modal fade" id="shiftContent">
 				<div class="modal-dialog">
-					<SubProject ref='subProject' @certainAction='feedBack'></SubProject>
+					<subShift ref='subShift' @certainAction='feedBack'></subShift>
 				</div>
 			</div>
-		</div> -->
+		</div>
 	</div>
 </template>
 
 <script>
+	import subShift from '../../MP/EM/SubShift/SubShift.vue'
+	import dPicker from 'vue2-datepicker'
 	export default {
+		components:{
+			dPicker,
+			subShift,
+		},
 		data() {
 			return {
 				
 			};
+		},
+		methods:{
+			selectRule(param,item){
+				
+				if(param==1){
+				    this.$refs.subShift.initData('add','')
+				    $("#shiftContent").modal('show')
+				}else if(param==3){
+				    this.$refs.subShift.initData('modify', item)
+				    $("#shiftContent").modal('show')
+				}
+			},
+			feedBack(){
+			    $("#shiftContent").modal('hide')
+			},
 		}
 	}
 </script>
