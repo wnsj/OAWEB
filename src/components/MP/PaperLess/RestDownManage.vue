@@ -16,7 +16,7 @@
 
         <span class="leavespan">
           <dPicker v-model="begDate" value-type="format" format="YYYY-MM-DD"></dPicker>
-        </span> <span class="leavespan01" style="font-size: 16px">至：</span>
+        </span> <span class="leavespan01" style="font-size: 16px">至</span>
         <span class="leavespan">
           <dPicker v-model="endDate" value-type="format" format="YYYY-MM-DD"></dPicker>
         </span>
@@ -64,7 +64,7 @@
                 <th class="text-center">申请时间</th>
                 <th class="text-center">加班时间</th>
                 <th class="text-center">倒休时间</th>
-                <th class="text-center">请假说明</th>
+                <th class="text-center">倒休说明</th>
                 <th class="text-center">审查人</th>
                 <th class="text-center">审查结果</th>
                 <th class="text-center">审核人</th>

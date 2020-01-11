@@ -16,6 +16,7 @@ import Department from '../components/MP/BS/Department.vue'
 import Position from '../components/MP/BS/Position.vue'
 import PositionType from '../components/MP/BS/PositionType.vue'
 import ScheduleType from '../components/MP/BS/ScheduleType.vue'
+import forgetCardManage from '../components/MP/PaperLess/forgetCardManage.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -28,32 +29,37 @@ export default new Router({
 				path: '/MP/test',
 				name: 'test',
 				component: test,
-			}, 
-// 			{
-// 				path: '/MP/PaperLess/AskLeaveManage',
-// 				name: 'AskLeaveManage',
-// 				component: AskLeaveManage,
-// 			}, 
-// 			{
-// 				path: '/MP/PaperLess/RestDownManage',
-// 				name: 'RestDownManage',
-// 				component: RestDownManage,
-// 			},
+			},
+			{
+				path: '/MP/PaperLess/AskLeaveManage',
+				name: 'AskLeaveManage',
+				component: AskLeaveManage,
+			},
+			{
+				path: '/MP/PaperLess/RestDownManage',
+				name: 'RestDownManage',
+				component: RestDownManage,
+			},
+            {
+            	path: '/MP/PaperLess/forgetCardManage',
+            	name: 'forgetCardManage',
+            	component: forgetCardManage,
+            },
 			{
 				path: '/MP/PaperLess',
 				name: 'PaperLess',
 				component: PaperLess,
 				children:[
-					{
-						path: '/MP/PaperLess/AskLeaveManage',
-						name: 'AskLeaveManage',
-						component: AskLeaveManage,
-					}, 
-					{
-						path: '/MP/PaperLess/RestDownManage',
-						name: 'RestDownManage',
-						component: RestDownManage,
-					},
+					// {
+					// 	path: '/MP/PaperLess/AskLeaveManage',
+					// 	name: 'AskLeaveManage',
+					// 	component: AskLeaveManage,
+					// },
+					// {
+					// 	path: '/MP/PaperLess/RestDownManage',
+					// 	name: 'RestDownManage',
+					// 	component: RestDownManage,
+					// },
 				],
 				redirect: '/MP/PaperLess/AskLeaveManage'
 			},

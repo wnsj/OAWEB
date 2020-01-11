@@ -27,14 +27,18 @@
 					<router-link to="/MP/PaperLess"><i class="fa" aria-hidden="false">无纸化</i></router-link>
 				</li>
 				<li>
-					<router-link to="/MP/PaperLess"><i class="fa" aria-hidden="false">请假管理</i></router-link>
+					<router-link to="/MP/PaperLess/AskLeaveManage"><i class="fa" aria-hidden="false">请假管理</i></router-link>
 				</li>
 				<li>
-					<router-link to="/MP/PaperLess"><i class="fa" aria-hidden="false">倒休管理</i></router-link>
+					<router-link to="/MP/PaperLess/RestDownManage"><i class="fa" aria-hidden="false">倒休管理</i></router-link>
 				</li>
 				<li>
 					<router-link to="/MP/BaseSetup"><i class="fa" aria-hidden="false">基础设置</i></router-link>
 				</li>
+
+                <li>
+                	<router-link to="/MP/PaperLess/forgetCardManage"><i class="fa" aria-hidden="false">忘打卡管理</i></router-link>
+                </li>
 			</ul>
 		</div>
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 embed-responsive embed-responsive-16by9" style="overflow: inherit; background-color:">
@@ -44,7 +48,7 @@
 </template>
 
 <script>
-	
+
 </script>
 
 <style>

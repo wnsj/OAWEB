@@ -17,7 +17,7 @@
 
         <span class="leavespan">
           <dPicker v-model="begDate" value-type="format" format="YYYY-MM-DD"></dPicker>
-        </span> <span class="leavespan01" style="font-size: 16px">至：</span>
+        </span> <span class="leavespan01" style="font-size: 16px">至</span>
         <span class="leavespan">
           <dPicker v-model="endDate" value-type="format" format="YYYY-MM-DD"></dPicker>
         </span>
