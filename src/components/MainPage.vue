@@ -39,6 +39,9 @@
                 <li>
                 	<router-link to="/MP/PaperLess/forgetCardManage"><i class="fa" aria-hidden="false">漏打卡管理</i></router-link>
                 </li>
+				<li>
+					<router-link to="/MP/PaperLess/InformationSheet"><i class="fa" aria-hidden="false">信息单管理</i></router-link>
+				</li>
 			</ul>
 		</div>
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 embed-responsive embed-responsive-16by9" style="overflow: inherit; background-color:">

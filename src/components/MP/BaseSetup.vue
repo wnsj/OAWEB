@@ -22,6 +22,9 @@
 						<li>
 							<router-link to="/MP/BS/ScheduleType"><i class="fa" aria-hidden="true">　排班类型管理</i></router-link>
 						</li>
+						<li>
+							<router-link to="/MP/BS/PowerManager"><i class="fa" aria-hidden="true">　权限管理</i></router-link>
+						</li>
 					</ul>
 				</div>
 				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 embed-responsive embed-responsive-16by9" style="overflow: inherit; background-color:">

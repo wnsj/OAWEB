@@ -7,6 +7,7 @@ import BaseSetup from '../components/MP/BaseSetup.vue'
 import EmployeeManager from '../components/MP/EmployeeManager.vue'
 import AskLeaveManage from '../components/MP/PaperLess/AskLeaveManage.vue'
 import RestDownManage from '../components/MP/PaperLess/RestDownManage.vue'
+import InformationSheet from '../components/MP/PaperLess/InformationSheet.vue'
 import EmBase from '../components/MP/EM/EmBase.vue'
 import EmFamily from '../components/MP/EM/EmFamily.vue'
 import EmEducation from '../components/MP/EM/EmEducation.vue'
@@ -16,6 +17,7 @@ import Department from '../components/MP/BS/Department.vue'
 import Position from '../components/MP/BS/Position.vue'
 import PositionType from '../components/MP/BS/PositionType.vue'
 import ScheduleType from '../components/MP/BS/ScheduleType.vue'
+import PowerManager from '../components/MP/BS/PowerManager.vue'
 import forgetCardManage from '../components/MP/PaperLess/forgetCardManage.vue'
 Vue.use(Router)
 
@@ -45,6 +47,11 @@ export default new Router({
             	name: 'forgetCardManage',
             	component: forgetCardManage,
             },
+			{
+				path: '/MP/PaperLess/InformationSheet',
+				name: 'InformationSheet',
+				component: InformationSheet,
+			},
 			{
 				path: '/MP/PaperLess',
 				name: 'PaperLess',
@@ -120,6 +127,11 @@ export default new Router({
 						path: '/MP/BS/ScheduleType',
 						name: 'ScheduleType',
 						component: ScheduleType,
+					},
+					{
+						path: '/MP/BS/PowerManager',
+						name: 'PowerManager',
+						component: PowerManager,
 					},
 				],
 				redirect: '/MP/BS/Department'
