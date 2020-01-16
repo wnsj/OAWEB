@@ -27,18 +27,18 @@
         <div class="xingming">
           <p style="color: #fff; font-size: 16px;">姓名：</p>
           <span>
-            <input type="text" value="" class="form-control" v-model="empName" style="background-color: #c7e5e7;line-height: 40px; display: block; height: 40px; float:left;  width:100px;margin-left:10px" />
+            <input type="text" value="" class="form-control" v-model="senderName" style="background-color: #c7e5e7;line-height: 40px; display: block; height: 40px; float:left;  width:100px;margin-left:10px" />
           </span>
 
         </div>
         <div class="zhuangtai">
           <p style="color: #fff;font-size: 16px">状态：</p>
-          <select class="form-control" v-model="advState" style="background-color: #c7e5e7;" id="ztselect">
+          <select class="form-control" v-model="state" style="background-color: #c7e5e7;" id="ztselect">
             <option value="0">全部</option>
-            <option value="1">处理中</option>
-            <option value="2">已通过</option>
-            <option value="3">未通过</option>
-            <option value="4">已取消</option>
+            <option value="2">处理中</option>
+            <option value="3">已通过</option>
+            <option value="4">未通过</option>
+            <option value="1">已取消</option>
           </select>
 
         </div>
@@ -125,8 +125,8 @@
         deptId: '',
         begDate: this.moment(new Date(), 'YYYY-MM-DD'),
         endDate: this.moment(new Date(), 'YYYY-MM-DD'),
-        empName: '',
-        advState: 0,
+        senderName: '',
+        state: 0,
         sheetList: [],
         pass: 'padding:10px;background-color:#85c6ca ;',
         chuLing: 'padding:10px;background-color:#e2f2f2',
@@ -178,9 +178,9 @@
       askOfLeaveList() {
         var url = this.url + "/informationSheetAction/queryInformationSheet";
         var rquestParam = {
-//           deptId: this.deptId,
-//           empName: this.empName,
-//           advState: this.advState
+          deptSendId: this.deptId,
+          senderName: this.senderName,
+          state: this.state
         };
         if (this.dateType == '1' && !this.isBlank(this.begDate) && !this.isBlank(this.endDate)) {
           rquestParam.createBegDate = this.begDate;
