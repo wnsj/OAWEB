@@ -90,7 +90,7 @@
 								<th class="text-center">{{item.recAgree == '0' ? '未审核' : item.recAgree == '1' ? '通过' : '未通过'}}</th>
 								<th class="text-center">{{item.empName}}</th>
 								<th class="text-center">
-									<button class="btn btn-default" v-if="item.state == 0" @click="cancelAsk(item.infId)">点击取消</button>
+									<button class="btn btn-default" v-if="item.state != 1" @click="cancelAsk(item.infId)">点击取消</button>
 									<button class="btn btn-default" v-if="item.state == 1" :disabled="true">已取消</button>
 								</th>
 							</tr>
