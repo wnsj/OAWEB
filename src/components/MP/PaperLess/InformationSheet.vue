@@ -163,16 +163,15 @@
 			},
 			//处理背景颜色
 			setBgColor(obj) {
-				if (obj.state == '1') return this.cancaled;
-				else if (obj.approverAdv == '1') {
-					return this.pass;
-				} else if ((obj.examinerAdv != '2' && obj.auditorAdv != '2' && obj.approverAdv != '2') && (obj.examinerAdv ==
-						'0' || obj.examinerAdv == '1' || obj.auditorAdv == '0' || obj.auditorAdv == '1' ||
-						obj.approverAdv == '0' || obj.approverAdv == '1')) {
-					return this.chuLing;
-				} else {
-					return this.unPass;
-				}
+			    if (obj.state == '1') {
+			        return this.cancaled;
+			    } else if (obj.state == '2') {
+			        return this.chuLing;
+			    } else if (obj.state == '3') {
+			        return this.pass;
+			    } else if (obj.state == '4') {
+			        return this.unPass;
+			    }
 			},
 			//查询倒休
 			checkInformationSheetList() {
