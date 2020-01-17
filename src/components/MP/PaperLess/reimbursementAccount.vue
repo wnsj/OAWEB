@@ -3,15 +3,13 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 headnew">
             <div class="img_title">
                 <img src="@/assets/img/logo_03.jpg">
-                <h2>倒休管理</h2>
+                <h2>报销单管理</h2>
             </div>
 
             <div class="shenqdata">
                 <select v-model="dateType">
                     <option value="0">--未选择--</option>
                     <option value="1">申请日期</option>
-                    <option value="2">休假日期</option>
-                    <option value="3">加班日期</option>
                 </select>
 
                 <span class="leavespan">
@@ -60,12 +58,9 @@
                         <thead>
                             <tr>
                                 <th class="text-center">申请人</th>
-                                <th class="text-center">原因</th>
+                                <th class="text-center">报销事由</th>
                                 <th class="text-center">部门</th>
                                 <th class="text-center">申请时间</th>
-                                <th class="text-center">加班时间</th>
-                                <th class="text-center">倒休时间</th>
-                                <th class="text-center">倒休说明</th>
                                 <th class="text-center">审查人</th>
                                 <th class="text-center">审查结果</th>
                                 <th class="text-center">审核人</th>
@@ -78,12 +73,9 @@
                         <thead>
                             <tr v-for="(item) in askLeaveList" :key="item.alId" :style="setBgColor(item)">
                                 <th class="text-center">{{item.empName}}</th>
-                                <th class="text-center">{{item.reaName}}</th>
+                                <th class="text-center">{{item.raReason}}</th>
                                 <th class="text-center">{{item.deptName}}</th>
                                 <th class="text-center">{{item.createDate}}</th>
-                                <th class="text-center">{{item.overtimeBeg}} -- {{item.overtimeEnd}} </th>
-                                <th class="text-center">{{item.restDateBeg}} -- {{item.restDateEnd}} </th>
-                                <th class="text-center">{{item.remark}}</th>
                                 <th class="text-center">{{item.examinerName}}</th>
                                 <th class="text-center">{{item.examinerAdv == '0' ? '未审核' : item.examinerAdv == '1' ? '通过' : '未通过'}}</th>
                                 <th class="text-center">{{item.auditorName}}</th>
@@ -91,7 +83,7 @@
                                 <th class="text-center">{{item.approverName}}</th>
                                 <th class="text-center">{{item.approverAdv == '0' ? '未审核' : item.approverAdv == '1' ? '通过' : '未通过'}}</th>
                                 <th class="text-center">
-                                    <button class="btn btn-default" v-if="item.state != 1" @click="cancelAsk(item.rdId)">点击取消</button>
+                                    <button class="btn btn-default" v-if="item.state != 1" @click="cancelAsk(item.raId)">点击取消</button>
                                     <button class="btn btn-default" v-if="item.state == 1" :disabled="true">已取消</button>
                                 </th>
                             </tr>
@@ -148,7 +140,7 @@
                         method: "post",
                         url: url,
                         headers: {
-                            "Content-Type": this.contentType,
+                            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
                             "Access-Token": this.$root.accountAccessToken
                         },
                         data: rquestParam,
@@ -174,23 +166,16 @@
                     return this.unPass;
                 }
             },
-            //查询倒休
+            //查询报销单
             askOfLeaveList() {
-                var url = this.url + "/restDownAction/queryRestDown";
-                var rquestParam = {
-                    deptId: this.deptId,
-                    empName: this.empName,
-                    state: this.state == -1 ? '' : this.state
-                };
+                var url = this.url + "/ReimbursementAccountAction/queryReimbursementAccount";
+                var rquestParam = new FormData();
+                rquestParam.append("deptId", this.deptId);
+                rquestParam.append("empName", this.empName);
+                rquestParam.append("state", this.state == '-1' ? '' : this.state);
                 if (this.dateType == '1' && !this.isBlank(this.begDate) && !this.isBlank(this.endDate)) {
-                    rquestParam.createBegDate = this.begDate;
-                    rquestParam.createEndDate = this.endDate;
-                } else if (this.dateType == '2' && !this.isBlank(this.begDate) && !this.isBlank(this.endDate)) {
-                    rquestParam.restDateBeg = this.begDate;
-                    rquestParam.restDateEnd = this.endDate;
-                } else if (this.dateType == '3' && !this.isBlank(this.begDate) && !this.isBlank(this.endDate)) {
-                    rquestParam.overtimeBeg = this.begDate;
-                    rquestParam.overtimeEnd = this.endDate;
+                    rquestParam.append("createBegDate", this.begDate);
+                    rquestParam.append("createEndDate", this.endDate);
                 }
                 this.requestData(url, rquestParam).then((responseData) => {
                     if (responseData.retCode == '0000') {
@@ -205,11 +190,10 @@
             //取消
             cancelAsk(value) {
                 if (!confirm("确定取消?取消后不可恢复.")) return;
-                var url = this.url + "/restDownAction/operationRestDown";
-                var rquestParam = {
-                    rdId: value,
-                    state: 1
-                }
+                var url = this.url + "/ReimbursementAccountAction/operationReimbursementAccount";
+                var rquestParam = new FormData();
+                rquestParam.append("raId", value);
+                rquestParam.append("state", 1)
                 this.requestData(url, rquestParam).then((responseData) => {
                     if (responseData.retCode == '0000') {
                         alert("成功!")

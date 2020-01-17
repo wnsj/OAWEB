@@ -32,14 +32,14 @@
 				<li>
 					<router-link to="/MP/PaperLess/RestDownManage"><i class="fa" aria-hidden="false">倒休管理</i></router-link>
 				</li>
-				<li>
-					<router-link to="/MP/BaseSetup"><i class="fa" aria-hidden="false">基础设置</i></router-link>
-				</li>
 
                 <li>
                 	<router-link to="/MP/PaperLess/forgetCardManage"><i class="fa" aria-hidden="false">漏打卡管理</i></router-link>
                 </li>
-				<li>
+                   <li>
+                	<router-link to="/MP/PaperLess/reimbursementAccount"><i class="fa" aria-hidden="false">报销单管理</i></router-link>
+                </li>
+                <li>
 					<router-link to="/MP/PaperLess/InformationSheet"><i class="fa" aria-hidden="false">信息单管理</i></router-link>
 				</li>
 			</ul>

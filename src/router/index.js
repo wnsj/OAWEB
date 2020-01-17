@@ -19,6 +19,8 @@ import PositionType from '../components/MP/BS/PositionType.vue'
 import ScheduleType from '../components/MP/BS/ScheduleType.vue'
 import PowerManager from '../components/MP/BS/PowerManager.vue'
 import forgetCardManage from '../components/MP/PaperLess/forgetCardManage.vue'
+import reimbursementAccount from '../components/MP/PaperLess/reimbursementAccount.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -52,6 +54,11 @@ export default new Router({
 				name: 'InformationSheet',
 				component: InformationSheet,
 			},
+             {
+                path: '/MP/PaperLess/reimbursementAccount',
+                name: 'reimbursementAccount',
+                component: reimbursementAccount
+            },
 			{
 				path: '/MP/PaperLess',
 				name: 'PaperLess',
@@ -135,7 +142,7 @@ export default new Router({
 					},
 				],
 				redirect: '/MP/BS/Department'
-			}, 
+			},
 		],
 		redirect: '/MP/PaperLess'
 	}]
