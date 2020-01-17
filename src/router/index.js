@@ -7,58 +7,64 @@ import EmployeeManager from '../components/MP/EmployeeManager.vue'
 import AskLeaveManage from '../components/MP/PaperLess/AskLeaveManage.vue'
 import RestDownManage from '../components/MP/PaperLess/RestDownManage.vue'
 import forgetCardManage from '../components/MP/PaperLess/forgetCardManage.vue'
+import reimbursementAccount from '../components/MP/PaperLess/reimbursementAccount.vue'
+
 Vue.use(Router)
 
 export default new Router({
-	routes: [{
-		path: '/',
-		name: 'MainPage',
-		component: MainPage,
-		children: [
-			{
-				path: '/MP/test',
-				name: 'test',
-				component: test,
-			},
-			{
-				path: '/MP/PaperLess/AskLeaveManage',
-				name: 'AskLeaveManage',
-				component: AskLeaveManage,
-			},
-			{
-				path: '/MP/PaperLess/RestDownManage',
-				name: 'RestDownManage',
-				component: RestDownManage,
-			},
-            {
-            	path: '/MP/PaperLess/forgetCardManage',
-            	name: 'forgetCardManage',
-            	component: forgetCardManage,
+    routes: [{
+        path: '/',
+        name: 'MainPage',
+        component: MainPage,
+        children: [{
+                path: '/MP/test',
+                name: 'test',
+                component: test,
             },
-			{
-				path: '/MP/PaperLess',
-				name: 'PaperLess',
-				component: PaperLess,
-				children:[
-					// {
-					// 	path: '/MP/PaperLess/AskLeaveManage',
-					// 	name: 'AskLeaveManage',
-					// 	component: AskLeaveManage,
-					// },
-					// {
-					// 	path: '/MP/PaperLess/RestDownManage',
-					// 	name: 'RestDownManage',
-					// 	component: RestDownManage,
-					// },
-				],
-				redirect: '/MP/PaperLess/AskLeaveManage'
-			},
-			{
-				path: '/MP/EmployeeManager',
-				name: 'EmployeeManager',
-				component: EmployeeManager,
-			},
-		],
-		redirect: '/MP/PaperLess'
-	}]
+            {
+                path: '/MP/PaperLess/AskLeaveManage',
+                name: 'AskLeaveManage',
+                component: AskLeaveManage,
+            },
+            {
+                path: '/MP/PaperLess/RestDownManage',
+                name: 'RestDownManage',
+                component: RestDownManage,
+            },
+            {
+                path: '/MP/PaperLess/forgetCardManage',
+                name: 'forgetCardManage',
+                component: forgetCardManage,
+            },
+            {
+                path: '/MP/PaperLess/reimbursementAccount',
+                name: 'reimbursementAccount',
+                component: reimbursementAccount
+            },
+            {
+                path: '/MP/PaperLess',
+                name: 'PaperLess',
+                component: PaperLess,
+                children: [
+                    // {
+                    // 	path: '/MP/PaperLess/AskLeaveManage',
+                    // 	name: 'AskLeaveManage',
+                    // 	component: AskLeaveManage,
+                    // },
+                    // {
+                    // 	path: '/MP/PaperLess/RestDownManage',
+                    // 	name: 'RestDownManage',
+                    // 	component: RestDownManage,
+                    // },
+                ],
+                redirect: '/MP/PaperLess/AskLeaveManage'
+            },
+            {
+                path: '/MP/EmployeeManager',
+                name: 'EmployeeManager',
+                component: EmployeeManager,
+            },
+        ],
+        redirect: '/MP/PaperLess'
+    }]
 })
